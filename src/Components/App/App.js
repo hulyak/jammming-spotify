@@ -42,13 +42,14 @@ class App extends React.Component {
   }
 
   addTrack(track){
+    let tracks = this.state.playlistTracks;
     // check if the current song is in the playlistTracks state
-    if(this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
-      this.setState();
-      // If the id is new, add the song to the end of the playlist
-    }else{
-      this.setState(this.state.playlistTracks.push(track.id));
+    if(tracks.find(savedTrack => savedTrack.id === track.id)) {
+      return;
     }
+     // If the id is new, add the song to the end of the playlist
+     tracks.push(track);
+    this.setState({playlistTracks : tracks});
   }
   render(){
     return (
@@ -57,7 +58,7 @@ class App extends React.Component {
       <div className="App">
       <SearchBar />
       <div className="App-playlist">
-      <SearchResults searchResults={this.state.searchResults}/>
+      <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
       <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}/>
       </div>
       </div>
