@@ -7,21 +7,25 @@ import Playlist from '../Playlist/Playlist';
 class App extends React.Component {
   constructor(props){
     super(props);
+
     this.state = {
       searchResults : [{
         name : 'Deep Pockets',
         artist: 'Drake',
-        album : 'Dark Lane Demo Tapes'
+        album : 'Dark Lane Demo Tapes',
+        id : 1
       },
       {
       name : 'July',
       artist: 'Noah Cyrus',
-      album : 'The End of Everything'
+      album : 'The End of Everything',
+      id :2
     },
     {
       name : 'God is a Dancer',
       artist: 'Tiësto',
-      album : 'The London Sessions'
+      album : 'The London Sessions',
+      id : 3
     },
     ],
 
@@ -33,6 +37,18 @@ class App extends React.Component {
       album : "bir"
     }]
     };
+
+    this.addTrack = this.addTrack.bind(this);
+  }
+
+  addTrack(track){
+    // check if the current song is in the playlistTracks state
+    if(this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+      this.setState();
+      // If the id is new, add the song to the end of the playlist
+    }else{
+      this.setState(this.state.playlistTracks.push(track.id));
+    }
   }
   render(){
     return (
