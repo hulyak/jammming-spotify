@@ -47,3 +47,23 @@
 - Create a method that updates the searchResults parameter in the App component with a user’s search results. You will write the logic that allows a user to enter a search parameter, receives a response from the Spotify API, and updates the searchResults state with the results from a Spotify request.
 
 - In a later section, you will hook the .search() method up to the Spotify API.
+
+9. Obtain a Spotify Access Token
+
+- Write three methods that accomplish the following:
+
+  - Get a Spotify user’s access token
+  - Send a search request to the Spotify API
+  - Save a user’s playlist to their Spotify account.
+
+- Before you begin, you will need to create an empty JavaScript module called Spotify located in src/util/Spotify.js.
+
+- In this assessment, you will register a Spotify application and create a method called *getAccessToken* in the Spotify module. The method will get a user’s access token so that they can make requests to the Spotify API.
+
+- Use the [Spotify Applications Registration Flow](https://developer.spotify.com/dashboard/) and [Spotify Authentication](https://developer.spotify.com/documentation/general/guides/authorization-guide/) guide to help you write the method.
+
+- Register your application using the [Spotify application registration flow](https://developer.spotify.com/dashboard/applications).
+
+- Give your application a relevant name and description. Also, add the following Redirect URI under settings tab:
+
+`http://localhost:3000/`
