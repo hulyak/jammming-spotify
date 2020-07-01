@@ -30,7 +30,7 @@ class App extends React.Component {
     ],
 
     // user can change the playlistName
-    playlistName : 'Hello world',
+    playlistName : 'My Playlist',
     playlistTracks : [{
       id: 1,
       name: 'bir',
@@ -38,10 +38,11 @@ class App extends React.Component {
       album : "bir"
     }]
     };
-
+   
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
+    this.savePlaylist = this.savePlaylist.bind(this);
   }
 
   addTrack(track){
@@ -64,9 +65,15 @@ class App extends React.Component {
 
   // Sets the state of the playlistName to the input argument
   updatePlaylistName(name){
-    this.setState({name : this.state.playlistName});
+    this.setState({name :this.state.playlistName});
   }
 
+  // Generates an array of uri values called trackURIs from the playlistTracks property
+  //later, will pass the trackURIs array and playlistName to a method that will save the user’s playlist to their account.
+  savePlaylist(){
+    alert("hey")
+    const trackURIs = this.state.playlistTracks.map(track => track.uri);
+  }
   render(){
     return (
       <div>
@@ -82,6 +89,7 @@ class App extends React.Component {
                 playlistTracks={this.state.playlistTracks} 
                 onRemove={this.removeTrack}
                 onNameChange={this.updatePlaylistName}
+                onSave = {this.savePlaylist}
                 />
       </div>
       </div>
