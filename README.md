@@ -24,4 +24,4 @@
    
 - Implement a process for adding a song from the search results track list to the user’s custom playlist.
 
-- Add a method to App.js called addTrack that adds a song to the playlist state. The application passes the method through a series of components to Track. The user can trigger the .addTrack() method by clicking the + sign from the search results list.
+- Add a method to App.js called *addTrack* that adds a song to the playlist state. The application passes the method through a series of components to Track. The user can trigger the .addTrack() method by clicking the + sign from the search results list.
