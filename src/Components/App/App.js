@@ -29,6 +29,7 @@ class App extends React.Component {
     },
     ],
 
+    // user can change the playlistName
     playlistName : 'Hello world',
     playlistTracks : [{
       id: 1,
@@ -40,6 +41,7 @@ class App extends React.Component {
 
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
+    this.updatePlaylistName = this.updatePlaylistName.bind(this);
   }
 
   addTrack(track){
@@ -60,6 +62,11 @@ class App extends React.Component {
     this.setState({ playlistTracks : tracks})
   }
 
+  // Sets the state of the playlistName to the input argument
+  updatePlaylistName(name){
+    this.setState({name : this.state.playlistName});
+  }
+
   render(){
     return (
       <div>
@@ -67,8 +74,15 @@ class App extends React.Component {
       <div className="App">
       <SearchBar />
       <div className="App-playlist">
-      <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
-      <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} onRemove={this.removeTrack}/>
+
+      <SearchResults searchResults={this.state.searchResults} 
+                      onAdd={this.addTrack} />
+
+      <Playlist playlistName={this.state.playlistName} 
+                playlistTracks={this.state.playlistTracks} 
+                onRemove={this.removeTrack}
+                onNameChange={this.updatePlaylistName}
+                />
       </div>
       </div>
     </div>
