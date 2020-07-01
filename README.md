@@ -41,3 +41,9 @@
 - To accomplish the goal of this assessment, you will need to access a track property named [uri](https://developer.spotify.com/documentation/web-api/). Spotify uses this field to reference tracks in the Spotify library. You will create an array containing the uri of each track in the playlistTracks property.
 
 - In a later section, you will pass the playlist name and the array of uris to a Spotify-linked method that writes the tracks in playlistTracks to a user’s account.
+
+8. Hook up Search Bar to Spotify Search
+
+- Create a method that updates the searchResults parameter in the App component with a user’s search results. You will write the logic that allows a user to enter a search parameter, receives a response from the Spotify API, and updates the searchResults state with the results from a Spotify request.
+
+- In a later section, you will hook the .search() method up to the Spotify API.
