@@ -33,3 +33,11 @@
 6. Change the Name of a Playlist
    
 - Implement code that allows a user to change the name of their playlist, and save the updated value to the App component’s state.
+
+7. Create a Method that Saves the Playlist to a User's Spotify  Account
+
+- Create a method that will save a user’s playlist to their Spotify account and resets the state of the playlist name and tracks array.
+
+- To accomplish the goal of this assessment, you will need to access a track property named [uri](https://developer.spotify.com/documentation/web-api/). Spotify uses this field to reference tracks in the Spotify library. You will create an array containing the uri of each track in the playlistTracks property.
+
+- In a later section, you will pass the playlist name and the array of uris to a Spotify-linked method that writes the tracks in playlistTracks to a user’s account.

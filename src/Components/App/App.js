@@ -71,7 +71,6 @@ class App extends React.Component {
   // Generates an array of uri values called trackURIs from the playlistTracks property
   //later, will pass the trackURIs array and playlistName to a method that will save the user’s playlist to their account.
   savePlaylist(){
-    alert("hey")
     const trackURIs = this.state.playlistTracks.map(track => track.uri);
   }
   render(){
