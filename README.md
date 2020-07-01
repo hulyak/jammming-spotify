@@ -19,3 +19,9 @@
 - When a user adds songs from the search results list to their playlist, a method will update the state of a playlist parameter in App.js, and Jammming will render the song in the user’s playlist.
 
 - In a later assessment, we will write methods that add and remove songs from the playlist. We will also write a method that updates the playlist’s title.
+
+4. Add Tracks to a Playlist
+   
+- Implement a process for adding a song from the search results track list to the user’s custom playlist.
+
+- Add a method to App.js called addTrack that adds a song to the playlist state. The application passes the method through a series of components to Track. The user can trigger the .addTrack() method by clicking the + sign from the search results list.
