@@ -29,3 +29,7 @@
 5. Remove Tracks from a Playlist
 
 - Implement a process that removes a song from a user’s custom playlist when the user selects the - sign inside of a rendered track. 
+
+6. Change the Name of a Playlist
+   
+- Implement code that allows a user to change the name of their playlist, and save the updated value to the App component’s state.
