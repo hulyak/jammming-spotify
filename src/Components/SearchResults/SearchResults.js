@@ -7,6 +7,7 @@ class SearchResults extends React.Component{
     return (
       <div className="SearchResults">
       <h2>Results</h2>
+      {/* Pass the search results from the SearchResults component to the TrackList component. */}
       <TrackList tracks={this.props.searchResults}/>
       </div>
     )
