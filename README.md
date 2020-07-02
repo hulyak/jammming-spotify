@@ -1,5 +1,38 @@
 # Jammming - Spotify app
 
+*Website that allows users to search the Spotify library, create a custom playlist, then save it to their Spotify account.*
+
+## Set-Up
+
+1. Clone this repository into your local machine using the terminal (mac) or Gitbash (PC) > `git clone CLONEURL`
+2. CD to the folder cd FOLDERNAME
+3. Run > `npm install` to install the project dependencies
+4. Run > `npm start` to start live preview server
+
+## Deployment with [Surge](https://surge.sh/) 
+
+1. Install surge globally. In your console, run `npm install --global surge`
+2. Before you deploy,  think of a domain name with the following format:
+
+```
+SOME_NAME.surge.sh
+```
+
+- **SOME_NAME** can be replaced with anything you like.
+
+- Next, you need to replace or add this URI to two locations in your project.
+
+- In *Spotify.js*, set `redirectUri` to your new domain
+In your [Spotify application](https://developer.spotify.com/dashboard/), add your new domain as a redirect URI under settings.
+
+3. Back in the command line, from the Jammming project’s root directory, run `npm run build`
+  
+4. `cd` into the build directory and run the command `surge`
+Follow the steps on the screen. Change the domain value to your new URI.
+
+5. If you have an error, check this [page](https://www.thetopsites.net/article/53111172.shtml). You may need to use `cp index.html 200.html` command.
+  
+
 ## Checklist
 
 1. **Create Static Components**
