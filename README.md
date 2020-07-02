@@ -2,17 +2,17 @@
 
 ## Checklist
 
-1. Create Static Components
+1. **Create Static Components**
    
 - Create 6 components and css files
 
-2. Pass Down Search Result and Render Result List
+2. **Pass Down Search Result and Render Result List**
 
 - Pass the state of a **searchResults** parameter through a series of components to render an array of tracks.
 - When a user requests data from Spotify, the JSON response will include a set of song tracks. Each *track* will contain a field for *name*, *artist*, and *album*. For each track in the results list, Jammming web app will display the song name, artist, and album.
 - In a later section, we will build a method that sets the state of the search results parameter to a response from the Spotify API.
 
-3. Pass down Playlist to TrackList
+3. **Pass down Playlist to TrackList**
 
 - Pass the state of a user’s custom playlist title and tracks from the App component down to components that render them.
 
@@ -20,21 +20,21 @@
 
 - In a later assessment, we will write methods that add and remove songs from the playlist. We will also write a method that updates the playlist’s title.
 
-4. Add Tracks to a Playlist
+4. **Add Tracks to a Playlist**
    
 - Implement a process for adding a song from the search results track list to the user’s custom playlist.
 
 - Add a method to App.js called *addTrack* that adds a song to the playlist state. The application passes the method through a series of components to Track. The user can trigger the .addTrack() method by clicking the + sign from the search results list.
 
-5. Remove Tracks from a Playlist
+5. **Remove Tracks from a Playlist**
 
 - Implement a process that removes a song from a user’s custom playlist when the user selects the - sign inside of a rendered track. 
 
-6. Change the Name of a Playlist
+6. **Change the Name of a Playlist**
    
 - Implement code that allows a user to change the name of their playlist, and save the updated value to the App component’s state.
 
-7. Create a Method that Saves the Playlist to a User's Spotify  Account
+7. **Create a Method that Saves the Playlist to a User's Spotify  Account**
 
 - Create a method that will save a user’s playlist to their Spotify account and resets the state of the playlist name and tracks array.
 
@@ -42,13 +42,13 @@
 
 - In a later section, you will pass the playlist name and the array of uris to a Spotify-linked method that writes the tracks in playlistTracks to a user’s account.
 
-8. Hook up Search Bar to Spotify Search
+8. **Hook up Search Bar to Spotify Search**
 
 - Create a method that updates the searchResults parameter in the App component with a user’s search results. You will write the logic that allows a user to enter a search parameter, receives a response from the Spotify API, and updates the searchResults state with the results from a Spotify request.
 
 - In a later section, you will hook the .search() method up to the Spotify API.
 
-9. Obtain a Spotify Access Token
+9. **Obtain a Spotify Access Token**
 
 - Write three methods that accomplish the following:
 
@@ -67,3 +67,13 @@
 - Give your application a relevant name and description. Also, add the following Redirect URI under settings tab:
 
 `http://localhost:3000/`
+
+10. **Implement Spotify Search Request**
+
+- Create a method in **Spotify.js** that accepts a search term input, passes the search term value to a Spotify request, then returns the response as a list of tracks in JSON format.
+
+- You will need the user’s access token to make requests to the Spotify API. You will use the request parameters in step four of the [implicit grant flow](https://developer.spotify.com/documentation/general/guides/authorization-guide/) to make requests. In the following steps, we will use fetch() to make our requests, but any method will work.
+
+- You should use the `/v1/search?type=TRACK` endpoint when making your request. Use the [Spofity Web API Endpoint Reference](https://developer.spotify.com/documentation/web-api/reference/) to help format your request.
+
+
