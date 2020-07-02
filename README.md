@@ -1,4 +1,4 @@
-# [Jammming - Spotify app](jumbled-land.surge.sh)
+# [Jammming - Spotify app](http://jumbled-land.surge.sh)
 
 ## Checklist
 
