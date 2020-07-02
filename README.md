@@ -76,4 +76,16 @@
 
 - You should use the `/v1/search?type=TRACK` endpoint when making your request. Use the [Spofity Web API Endpoint Reference](https://developer.spotify.com/documentation/web-api/reference/) to help format your request.
 
+11. **Save a User's Playlist**
+    
+- Create a method called *savePlaylist* that writes the learner’s custom playlist in Jammming to their Spotify account.
 
+- The .savePlaylist() method accepts a playlist name and an array of track URIs. It makes the following three requests to the Spotify API:
+
+  - GET current user’s ID
+  
+  - POST a new playlist with the input name to the current user’s Spotify account. Receive the playlist ID back from the request.
+  
+  - POST the track URIs to the newly-created playlist, referencing the current user’s account (ID) and the new playlist (ID)
+
+- You will update the .savePlaylist() method in App.js to use the new Spotify.savePlaylist() method.
