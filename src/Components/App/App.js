@@ -10,34 +10,10 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      searchResults : [{
-        name : 'Deep Pockets',
-        artist: 'Drake',
-        album : 'Dark Lane Demo Tapes',
-        id : 1
-      },
-      {
-      name : 'July',
-      artist: 'Noah Cyrus',
-      album : 'The End of Everything',
-      id :2
-    },
-    {
-      name : 'God is a Dancer',
-      artist: 'Tiësto',
-      album : 'The London Sessions',
-      id : 3
-    },
-    ],
-
-    // user can change the playlistName
-    playlistName : 'My Playlist',
-    playlistTracks : [{
-      id: 1,
-      name: 'bir',
-      artist : 'bir',
-      album : "bir"
-    }]
+      searchResults : [],
+      // user can change the playlistName
+      playlistName : 'New Playlist',
+      playlistTracks : []
     };
    
     this.addTrack = this.addTrack.bind(this);
@@ -67,13 +43,19 @@ class App extends React.Component {
 
   // Sets the state of the playlistName to the input argument
   updatePlaylistName(name){
-    this.setState({name :this.state.playlistName});
+    this.setState({playlistName : name});
   }
 
   // Generates an array of uri values called trackURIs from the playlistTracks property
   //later, will pass the trackURIs array and playlistName to a method that will save the user’s playlist to their account.
   savePlaylist(){
-    const trackURIs = this.state.playlistTracks.map(track => track.uri);
+    const trackUris = this.state.playlistTracks.map(track => track.uri);
+    Spotify.savePlaylist(this.state.playlistName, trackUris).then(() => {
+      this.setState({
+        playlistName : 'New Playlist',
+        playlistTracks : []
+      });
+    });
   }
 
   // hook this method up to the Spotify API.
@@ -90,7 +72,7 @@ class App extends React.Component {
       <h1>Ja<span className="highlight">mmm</span>ing</h1>
       <div className="App">
       {/* search for a song  */}
-      <SearchBar onSearch = {this.search}/>
+      <SearchBar onSearch={this.search}/>
 
       <div className="App-playlist">
 
@@ -106,7 +88,7 @@ class App extends React.Component {
       </div>
       </div>
     </div>
-    )
+    );
   }
 }
 
