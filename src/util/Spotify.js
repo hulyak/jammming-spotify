@@ -18,12 +18,11 @@ const Spotify = {
     // Set the access token value
     // Set a variable for expiration time
     // Set the access token to expire at the value for expiration time
-    // Clear the parameters from the URL, so the app doesn’t try grabbing the access token after it has expired
     if (accessTokenMatch && expiresInMatch) {
       accessToken = accessTokenMatch[1];
       const expiresIn = Number(expiresInMatch[1]);
       window.setTimeout(() => accessToken = '', expiresIn * 1000);
-      window.history.pushState('Access Token', null, '/');
+      window.history.pushState('Access Token', null, '/'); // This clears the parameters, allowing us to grab a new access token when it expires.
       return accessToken;
     } else {
       const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
@@ -71,18 +70,26 @@ const Spotify = {
       }).then(res => res.json())
       .then(jsonResponse => {
         userId = jsonResponse.id;
+
+        // Use the returned user ID to make a POST request that creates a new playlist in the user’s account and returns a playlist ID
+        // endpoint creates a new playlist.
         return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
             headers: headers,
             method: 'POST',
             body: JSON.stringify({
+              // Set the playlist name to the value passed into the method.
               name: name
             })
           }).then(res => res.json())
           .then(jsonResponse => {
             const playlistId = jsonResponse.id;
+
+            // Use the returned user ID to make a POST request that creates a new playlist in the user’s account and returns a playlist ID.
+            // endpoint adds tracks to a playlist.
             return fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
               headers: headers,
               method: 'POST',
+              // Set the URIs parameter to an array of track URIs passed into the method.
               body: JSON.stringify({
                 uris: trackUris
               })
