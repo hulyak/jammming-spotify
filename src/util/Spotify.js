@@ -1,3 +1,5 @@
+import SearchBar from "../components/SearchBar/SearchBar";
+
 let accessToken;
 const clientID = ' 71d43cd4e452450fa97fdae6d5a306cf';
 const redirectURI = 'http://localhost:3000/';
@@ -8,7 +10,6 @@ const Spotify = {
     if (accessToken){
       return accessToken;
      }
-
       // If the access token is not already set, check the URL(window.location.href) to see if it has just been obtained.
       // You will be using the Implicit Grant Flow to setup a user’s account and make requests. The implicit grant flow returns a user’s access token in the URL.
       //  check for access token match
@@ -31,6 +32,28 @@ const Spotify = {
         window.location = accessUrl;
       }
     }
-  }
 
+    search(term){
+      const token = Spotify.getAccessToken();
+      return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
+        headers : {
+          Authorization : `Bearer ${accessToken}`
+        }
+      }).then(response  => response.json())
+      // map the converted JSON to an array of tracks. If the JSON does not contain any tracks, return an empty array.
+      .then(jsonResponse => {
+        if (!jsonResponse.tracks) {
+          return [];
+        }
+          return jsonResponse.tracks.map((track) => ({
+          id : track.id,
+          name : track.name,
+          artist : track.artists[0].name,
+          album : track.album.name,
+          uri : track.uri
+          }));
+      });
+    }
+
+  }
 export default Spotify;
